@@ -6,6 +6,17 @@ import { AppComponent } from './app.component';
 import { ChildComponent } from './counter/child/child.component';
 import { GrandChildComponent } from './counter/grand-child/grand-child.component';
 
+
+//NGRX
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './counter/counter.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +25,12 @@ import { GrandChildComponent } from './counter/grand-child/grand-child.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({ counter: counterReducer }),
+    StoreDevtoolsModule.instrument({ 
+      maxAge: 25, 
+      logOnly: environment.production 
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
