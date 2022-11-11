@@ -1,5 +1,6 @@
 node_modules
-
+01-redux-app/node_modules
 02-redux-app/node_modules
 03-redux-app/node_modules
+04-toDoApp/node_modules
 .DS_Store
